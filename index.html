@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <title>Gissa nummer</title>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <section id="page">
+            <!-- level form -->
+            <form id="level-form" class="form" style="display: none">
+                <legend id="level__legend" class="legend">
+                    Välj svårighetsgrad
+                </legend>
+                <fieldset class="radio">
+                    <input
+                        class="radio__input"
+                        type="radio"
+                        value="lätt"
+                        id="lätt"
+                        name="level"
+                    />
+                    <label class="radio__label" for="lätt">lätt</label>
+
+                    <input
+                        class="radio__input"
+                        type="radio"
+                        value="medel"
+                        id="medel"
+                        name="level"
+                    />
+                    <label class="radio__label" for="medel">medel</label>
+
+                    <input
+                        class="radio__input"
+                        type="radio"
+                        value="svår"
+                        id="svår"
+                        name="level"
+                    />
+                    <label class="radio__label" for="svår">svår</label>
+                </fieldset>
+                <button
+                    id="level__submit-btn"
+                    class="submit-btn"
+                    type="submit"
+                    disabled
+                >
+                    Låt oss spela!
+                </button>
+            </form>
+
+            <!-- game form -->
+            <form id="game-form" class="form hidden" style="display: none">
+                <legend id="game__legend" class="legend">
+                    <span
+                        id="game__guessed-number"
+                        class="game__guessed-number"
+                    ></span
+                    ><span id="game__message" class="game__message"
+                        >Välj ett nummer</span
+                    >
+                </legend>
+                <input
+                    id="number-input"
+                    class="game__number-input"
+                    type="number"
+                    max="100"
+                />
+                <button
+                    id="game__submit-btn"
+                    class="submit-btn"
+                    type="submit"
+                    disabled
+                >
+                    Gissa
+                </button>
+            </form>
+            <!-- replay form -->
+            <form id="replay-form" class="form hidden" style="display: none">
+                <legend id="replay__legend" class="legend">
+                    <span
+                        id="replay__guessed-number"
+                        class="guessed-number"
+                    ></span
+                    ><span id="replay__message" class="message"></span>
+                </legend>
+                <div class="gif-container">
+                    <img class="gif-card" id="gif-card" src="#" />
+                </div>
+                <button
+                    id="replay__submit-btn"
+                    class="submit-btn"
+                    type="submit"
+                >
+                    Spela igen
+                </button>
+            </form>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+</html>
