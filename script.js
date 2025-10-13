@@ -27,26 +27,9 @@ let gifArray = [
     'Happy_SpongeBob_SquarePants.gif'
 ]
 
-//listeners
-window.addEventListener('load', () => {
-    levelForm.style.display = 'flex'
-})
-
-radioInputs.forEach((input) => {
-    input.addEventListener('change', () => enableSubmit(levelSubmitBtn))
-})
-
-numberInput.addEventListener('input', () => enableSubmit(gameSubmitBtn))
-
-levelForm.addEventListener('submit', submitLevel)
-
-gameForm.addEventListener('submit', submitNumber)
-
-replayForm.addEventListener('submit', () => swapForms(replayForm, levelForm))
 
 //functions
-
-function submitLevel(event) {
+let submitLevel = event => {
     event.preventDefault()
     let checked = Array.from(radioInputs).find(
         (input) => input.checked === true
@@ -77,7 +60,7 @@ function submitLevel(event) {
     })
 }
 
-function submitNumber(event) {
+let submitNumber = event => {
     event.preventDefault()
     console.log(randomNumber)
 
@@ -107,15 +90,15 @@ function submitNumber(event) {
     }
 }
 
-function enableSubmit(element) {
+let enableSubmit = element => {
     element.disabled = false
 }
 
-function getRandomNumber(min, max) {
+let getRandomNumber = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-function swapForms(hide, show, cb) {
+let swapForms = (hide, show, cb) => {
     hide.classList.add('hidden')
 
     hide.addEventListener('transitionend', function handler() {
@@ -130,3 +113,21 @@ function swapForms(hide, show, cb) {
         cb?.()
     })
 }
+
+
+//listeners
+window.addEventListener('load', () => {
+    levelForm.style.display = 'flex'
+})
+
+radioInputs.forEach((input) => {
+    input.addEventListener('change', () => enableSubmit(levelSubmitBtn))
+})
+
+numberInput.addEventListener('input', () => enableSubmit(gameSubmitBtn))
+
+levelForm.addEventListener('submit', submitLevel)
+
+gameForm.addEventListener('submit', submitNumber)
+
+replayForm.addEventListener('submit', () => swapForms(replayForm, levelForm))
